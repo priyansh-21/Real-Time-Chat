@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realtime Chat App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div id="joinScreen" class="layer visible">
+      <div class="card">
+        <h1>Join Chat</h1>
+        <p>Enter your name to start chatting in real time.</p>
+        <input id="usernameInput" type="text" placeholder="Your name" maxlength="25" autofocus />
+        <button id="joinBtn" class="button">Join</button>
+        <p id="joinError" class="error"></p>
+      </div>
+    </div>
+
+    <div id="chatScreen" class="layer">
+      <header class="topbar">
+        <div>
+          <h2>Real-time Chat</h2>
+          <p id="statusText" class="status">Connecting…</p>
+        </div>
+        <div id="activeUsers" class="users"></div>
+      </header>
+
+      <main id="messageWrapper" class="messages"></main>
+
+      <div class="typing" id="typingIndicator" aria-live="polite"></div>
+
+      <form id="messageForm" class="composer" autocomplete="off">
+        <input id="messageInput" type="text" placeholder="Type a message" maxlength="350" />
+        <button type="submit" class="button">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-UUNY7iSe6jL04bg6maAsznkQgWJqigaw3sFpkUxI3+phB53bJbq6J3PgJAXn9wtf" crossorigin="anonymous"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
